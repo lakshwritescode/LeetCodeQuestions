@@ -18,10 +18,3 @@ vector<int> twoSum(vector<int> &nums, int target) //better approach
     return {-1, -1};
 }
 
-int main()
-{
-    
-
-
-    return 0;
-}
