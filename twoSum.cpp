@@ -1,6 +1,38 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+class Solution
+{
+public:
+    vector<int> OptimaltwoSum(vector<int> &nums, int target)
+    {
+        int n = nums.size();
+        int left = 0;
+        int right = n - 1;
+
+        sort(nums.begin(), nums.end());
+        while (left < right)
+        {
+            int sum = nums[left] + nums[right];
+            if (sum == target)
+            {
+                return {left, right};
+            }
+
+            else if (sum < target)
+            {
+                left++;
+            }
+
+            else
+            {
+                right--;
+            }
+        }
+        return {-1, -1};
+    }
+};
+
 vector<int> twoSum(vector<int> &nums, int target) //better approach
 {
     map<int, int> mpp;
@@ -9,7 +41,7 @@ vector<int> twoSum(vector<int> &nums, int target) //better approach
     {
         int num = nums[i];
         int moreNeeded = target - num;
-        if (mpp.find(moreNeeded) != mpp.end())
+        if (mpp.find(moreNeeded) != mpp.end()) // traverse thru map until the number needed is not found
         {
             return {mpp[moreNeeded], i};
         }
