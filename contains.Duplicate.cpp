@@ -6,13 +6,14 @@ class Solution
 public:
     bool containsDuplicate(vector<int> &nums)
     {
-        unordered_set<int> seen;
+        unordered_set<int> st;
 
         for (int num : nums)
         {
-            if (seen.count(num))
+            if (st.find(num) != st.end())
                 return true;
-            seen.insert(num);
+
+            st.insert(num);
         }
 
         return false;
