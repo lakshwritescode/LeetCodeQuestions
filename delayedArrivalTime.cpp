@@ -8,3 +8,4 @@ public:
         return (arrivalTime + delayedTime) % 24;
     }
 };
+//contribution for today as i cut my hand
