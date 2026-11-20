@@ -1,0 +1,37 @@
+#include<bits/stdc++.h>
+using namespace std;
+/**
+ * Forward declaration of guess API.
+ * @param  num   your guess
+ * @return 	     -1 if num is higher than the picked number
+ *			      1 if num is lower than the picked number
+ *               otherwise return 0
+ * int guess(int num);
+ */
+
+class Solution
+{
+public:
+    int guess(int n)
+    {
+        //dummy function
+        return n;
+    }
+    int guessNumber(int n)
+    {
+        int low = 1;
+        int high = n;
+
+        while (low <= high)
+        {
+            int mid = (high - low) / 2 + low;
+            if (guess(mid) == -1)
+                high = mid - 1;
+            else if (guess(mid) == 1)
+                low = mid + 1;
+            else
+                return mid;
+        }
+        return -1;
+    }
+};
